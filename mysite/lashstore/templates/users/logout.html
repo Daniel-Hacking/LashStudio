@@ -1,0 +1,14 @@
+{% extends 'lashstore/base.html' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>You have been logged out.</h3>
+            <a class="btn btn-primary" href="{% url 'login' %}" role="button">Login</a>
+            <a class="btn btn-secondary" href="{% url 'home' %}" role="button">Return</a>
+        </form>
+    </div>
+{% endblock %}
+
+

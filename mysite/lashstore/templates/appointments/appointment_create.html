@@ -1,0 +1,29 @@
+{% extends 'lashstore/base.html' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="fieldWrapper mb-2">
+                    {{ field.errors }}
+                    <div class='row'>
+                        <div class='col-2'>
+                            {{ field.label_tag }}
+                        </div>
+                    <div class='col-2'>
+                        {{ field }}
+                    </div>
+                </div>
+            {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+            {% endfor %}
+            <div class='row container'>
+                <div class='container'>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
